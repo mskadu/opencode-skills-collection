@@ -4,7 +4,8 @@
 
 | Version | Supported |
 |---------|-----------|
-| 2.x     | ✅ Yes     |
+| 3.x     | ✅ Yes     |
+| 2.x     | ❌ No      |
 | 1.x     | ❌ No      |
 | 0.x     | ❌ No      |
 
@@ -23,6 +24,26 @@ This policy applies to:
 - The code in this repository
 - Configuration files (e.g., `.env.example`, `vercel.json`)
 - Deployment scripts and infrastructure configurations
+
+## Skill Risk Filter
+
+Starting from v3.0.0, the plugin includes a configurable risk filter that prevents potentially dangerous skills
+from being loaded. Skills sourced from the upstream repository are classified by risk level (`none`, `safe`, `critical`,
+`offensive`, `unknown`).
+
+Users can exclude entire risk levels or specific skills via `~/.config/opencode/skill-filter.jsonc`:
+
+```jsonc
+{
+  "excludedRiskLevels": ["offensive"],
+  "excludedSkills": []
+}
+```
+
+By default, all skills are loaded. We recommend excluding `offensive` skills unless you specifically need them for
+authorized penetration testing.
+
+For more details, see the [README](./README.md#skill-risk-filter).
 
 ## Thank You
 

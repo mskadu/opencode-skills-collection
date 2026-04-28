@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
 import { POINTER_SUFFIX, SKILL_FILENAME, UNCATEGORIZED_CATEGORY } from "../constants/constants.js";
-import { ensureDir, listSubdirectories } from "../utils/fs.utils.js";
+import { ensureDir } from "../utils/fs.utils.js";
 import type { SkillIndexEntry } from "./vault-installer.js";
 
 function buildPointerContent(
@@ -60,8 +60,6 @@ export function generatePointers(
   vaultDir: string,
   index: SkillIndexEntry[] = []
 ): void {
-  const categoryDirs = listSubdirectories(vaultDir);
-
   const byCategory = new Map<string, SkillIndexEntry[]>();
   for (const entry of index) {
     const cat = entry.category ?? UNCATEGORIZED_CATEGORY;
@@ -69,23 +67,8 @@ export function generatePointers(
     byCategory.get(cat)!.push(entry);
   }
 
-  for (const categoryName of categoryDirs) {
+  for (const [categoryName, skills] of byCategory.entries()) {
     const categoryVaultPath = path.join(vaultDir, categoryName);
-    let skills = byCategory.get(categoryName) ?? [];
-
-    if (skills.length === 0) {
-      const subDirs = fs.readdirSync(categoryVaultPath).filter((e) =>
-        fs.statSync(path.join(categoryVaultPath, e)).isDirectory()
-      );
-      if (subDirs.length === 0) continue;
-
-      skills = subDirs.map((dir) => ({
-        id: dir,
-        category: categoryName,
-        name: dir.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase()),
-        description: dir.replace(/-/g, " "),
-      }));
-    }
 
     const pointerDir = path.join(
       activeSkillsDir,

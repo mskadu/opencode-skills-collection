@@ -4,6 +4,8 @@ import { VAULT_DIR_NAME } from "../constants/constants.js";
 import { ensureDir } from "../utils/fs.utils.js";
 import { generatePointers } from "./pointer-generator.js";
 import { installSkillsToVault, loadSkillsIndex } from "./vault-installer.js";
+import { filterIndex } from "./skill-risk-filter.js";
+import { loadFilterConfig } from "./config-loader.js";
 
 export interface SkillPointerOptions {
   /** Absolute path where OpenCode looks for active skills. */
@@ -15,6 +17,10 @@ export interface SkillPointerOptions {
    * Defaults to ~/.config/opencode/skill-libraries
    */
   vaultDir?: string;
+  /**
+   * Optional path to the risk filter configuration file.
+   */
+  configPath?: string;
 }
 
 function resolveDefaultVaultDir(): string {
@@ -39,6 +45,8 @@ export function runSkillPointer(options: SkillPointerOptions): void {
   ensureDir(vaultDir);
 
   const index = loadSkillsIndex(options.bundledSkillsPath);
-  installSkillsToVault(options.bundledSkillsPath, vaultDir, index);
-  generatePointers(options.activeSkillsDir, vaultDir, index);
+  const config = loadFilterConfig(options.configPath);
+  const filteredIndex = filterIndex(index, config);
+  installSkillsToVault(options.bundledSkillsPath, vaultDir, filteredIndex);
+  generatePointers(options.activeSkillsDir, vaultDir, filteredIndex);
 }

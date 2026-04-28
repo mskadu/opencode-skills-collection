@@ -2,12 +2,14 @@ import fs from "fs";
 import path from "path";
 import { ensureDir } from "../utils/fs.utils.js";
 import { UNCATEGORIZED_CATEGORY } from "../constants/constants.js";
+import type { RiskLevel } from "./risk-level.js";
 
 export interface SkillIndexEntry {
   id: string;
   category: string;
   name: string;
   description: string;
+  risk?: RiskLevel;
 }
 
 /**
@@ -48,8 +50,10 @@ function buildIndexFromBundledSkills(bundledSkillsPath: string): SkillIndexEntry
     const name = parseFrontmatterField(content, "name") || entry;
     const description = parseFrontmatterField(content, "description") || name;
     const category = parseFrontmatterField(content, "category") || categoryFromFolderName(entry);
+    const riskRaw = parseFrontmatterField(content, "risk");
+    const risk: RiskLevel = (riskRaw as RiskLevel) || "unknown";
 
-    index.push({ id: entry, category, name, description });
+    index.push({ id: entry, category, name, description, risk });
   }
   return index;
 }
@@ -83,22 +87,12 @@ export function installSkillsToVault(
 ): void {
   if (!fs.existsSync(bundledSkillsPath)) return;
 
-  const categoryMap = new Map(
-    index.map((e) => [e.id, e.category ?? UNCATEGORIZED_CATEGORY])
-  );
+  for (const entry of index) {
+    const srcPath = path.join(bundledSkillsPath, entry.id);
+    if (!fs.existsSync(srcPath) || !fs.statSync(srcPath).isDirectory()) continue;
 
-  for (const entry of fs.readdirSync(bundledSkillsPath)) {
-    if (
-      entry.startsWith(".") ||
-      entry === "skills_index.json" ||
-      entry === "README.md"
-    ) continue;
-
-    const srcPath = path.join(bundledSkillsPath, entry);
-    if (!fs.statSync(srcPath).isDirectory()) continue;
-
-    const category = categoryMap.get(entry) ?? UNCATEGORIZED_CATEGORY;
-    const destPath = path.join(vaultDir, category, entry);
+    const category = entry.category ?? UNCATEGORIZED_CATEGORY;
+    const destPath = path.join(vaultDir, category, entry.id);
 
     ensureDir(path.join(vaultDir, category));
     fs.cpSync(srcPath, destPath, { recursive: true, force: true });
