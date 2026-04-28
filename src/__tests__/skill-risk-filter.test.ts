@@ -2,11 +2,6 @@ import { test, expect, describe, beforeEach, afterEach } from "bun:test";
 import type { RiskLevel } from "../skill-pointer/risk-level.js";
 import { shouldLoad, filterIndex } from "../skill-pointer/skill-risk-filter.js";
 import { loadFilterConfig } from "../skill-pointer/config-loader.js";
-import {
-  logBlockedSkill,
-  setFilterLogging,
-  isFilterLoggingEnabled,
-} from "../skill-pointer/filter-logger.js";
 import { loadSkillsIndex, installSkillsToVault } from "../skill-pointer/vault-installer.js";
 import { runSkillPointer } from "../skill-pointer/index.js";
 import { generatePointers } from "../skill-pointer/pointer-generator.js";
@@ -21,7 +16,6 @@ describe("shouldLoad", () => {
   const defaultConfig: SkillRiskFilterConfig = {
     excludedRiskLevels: [],
     excludedSkills: [],
-    loggingEnabled: true,
   };
 
   test("returns true for all risk levels when config has empty exclusions", () => {
@@ -35,7 +29,6 @@ describe("shouldLoad", () => {
     const config: SkillRiskFilterConfig = {
       excludedRiskLevels: ["offensive"],
       excludedSkills: [],
-      loggingEnabled: true,
     };
     expect(shouldLoad("ad-attacks", "offensive", config)).toBe(false);
     expect(shouldLoad("safe-tool", "safe", config)).toBe(true);
@@ -45,7 +38,6 @@ describe("shouldLoad", () => {
     const config: SkillRiskFilterConfig = {
       excludedRiskLevels: [],
       excludedSkills: ["my-skill"],
-      loggingEnabled: true,
     };
     expect(shouldLoad("my-skill", "safe", config)).toBe(false);
     expect(shouldLoad("other-skill", "safe", config)).toBe(true);
@@ -55,7 +47,6 @@ describe("shouldLoad", () => {
     const config: SkillRiskFilterConfig = {
       excludedRiskLevels: ["unknown"],
       excludedSkills: [],
-      loggingEnabled: true,
     };
     expect(shouldLoad("x", undefined, config)).toBe(false);
   });
@@ -73,7 +64,6 @@ describe("filterIndex", () => {
     const config: SkillRiskFilterConfig = {
       excludedRiskLevels: [],
       excludedSkills: [],
-      loggingEnabled: false,
     };
     const result = filterIndex(entries, config);
     expect(result.length).toBe(4);
@@ -83,7 +73,6 @@ describe("filterIndex", () => {
     const config: SkillRiskFilterConfig = {
       excludedRiskLevels: ["offensive"],
       excludedSkills: [],
-      loggingEnabled: false,
     };
     const result = filterIndex(entries, config);
     expect(result.length).toBe(3);
@@ -94,7 +83,6 @@ describe("filterIndex", () => {
     const config: SkillRiskFilterConfig = {
       excludedRiskLevels: [],
       excludedSkills: ["unknown-tool"],
-      loggingEnabled: false,
     };
     const result = filterIndex(entries, config);
     expect(result.length).toBe(3);
@@ -105,7 +93,6 @@ describe("filterIndex", () => {
     const config: SkillRiskFilterConfig = {
       excludedRiskLevels: ["unknown"],
       excludedSkills: [],
-      loggingEnabled: false,
     };
     const result = filterIndex(entries, config);
     expect(result.find((e) => e.id === "no-risk-tool")).toBeUndefined();
@@ -118,7 +105,6 @@ describe("loadFilterConfig", () => {
     const config = loadFilterConfig("/tmp/nonexistent-opencode-test-" + Date.now() + ".jsonc");
     expect(config.excludedRiskLevels).toEqual([]);
     expect(config.excludedSkills).toEqual([]);
-    expect(config.loggingEnabled).toBe(true);
   });
 
   test("parses JSONC with excludedRiskLevels", () => {
@@ -129,15 +115,13 @@ describe("loadFilterConfig", () => {
       `{
   // This is a comment
   "excludedRiskLevels": ["offensive", "unknown"],
-  "excludedSkills": ["windows-privilege-escalation"],
-  "loggingEnabled": false
+  "excludedSkills": ["windows-privilege-escalation"]
 }`
     );
     try {
       const config = loadFilterConfig(configPath);
       expect(config.excludedRiskLevels).toEqual(["offensive", "unknown"]);
       expect(config.excludedSkills).toEqual(["windows-privilege-escalation"]);
-      expect(config.loggingEnabled).toBe(false);
     } finally {
       fs.rmSync(tmpDir, { recursive: true, force: true });
     }
@@ -150,50 +134,8 @@ describe("loadFilterConfig", () => {
     try {
       const config = loadFilterConfig(configPath);
       expect(config.excludedRiskLevels).toEqual([]);
-      expect(config.loggingEnabled).toBe(true);
     } finally {
       fs.rmSync(tmpDir, { recursive: true, force: true });
-    }
-  });
-});
-
-describe("filter-logger", () => {
-  beforeEach(() => {
-    setFilterLogging(true);
-  });
-
-  test("logBlockedSkill writes to stderr", () => {
-    let captured = "";
-    const originalWrite = process.stderr.write;
-    process.stderr.write = (chunk: string | Buffer) => {
-      if (typeof chunk === "string") captured += chunk;
-      return true;
-    };
-    try {
-      logBlockedSkill("test-skill", "offensive", "risk-level-excluded");
-      expect(captured).toContain("[skill-risk-filter] BLOCKED");
-      expect(captured).toContain('skill="test-skill"');
-      expect(captured).toContain('risk="offensive"');
-      expect(captured).toContain('reason="risk-level-excluded"');
-    } finally {
-      process.stderr.write = originalWrite;
-    }
-  });
-
-  test("setFilterLogging(false) silences output", () => {
-    let captured = "";
-    const originalWrite = process.stderr.write;
-    process.stderr.write = (chunk: string | Buffer) => {
-      if (typeof chunk === "string") captured += chunk;
-      return true;
-    };
-    try {
-      setFilterLogging(false);
-      logBlockedSkill("test", "offensive", "test");
-      expect(captured).toBe("");
-      expect(isFilterLoggingEnabled()).toBe(false);
-    } finally {
-      process.stderr.write = originalWrite;
     }
   });
 });
@@ -238,7 +180,6 @@ describe("runSkillPointer integration with risk filter", () => {
       configPath,
       JSON.stringify({
         excludedRiskLevels: ["offensive"],
-        loggingEnabled: false,
       })
     );
 
@@ -261,7 +202,6 @@ describe("runSkillPointer integration with risk filter", () => {
       configPath,
       JSON.stringify({
         excludedRiskLevels: [],
-        loggingEnabled: false,
       })
     );
 
@@ -279,4 +219,3 @@ describe("runSkillPointer integration with risk filter", () => {
     expect(fs.existsSync(path.join(activeSkillsDir, `security${POINTER_SUFFIX}`))).toBe(true);
   });
 });
-

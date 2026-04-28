@@ -161,14 +161,12 @@ Create a `~/.config/opencode/skill-filter.jsonc` file:
 ```jsonc
 {
   "excludedRiskLevels": ["offensive"],
-  "excludedSkills": ["windows-privilege-escalation"],
-  "loggingEnabled": true
+  "excludedSkills": ["windows-privilege-escalation"]
 }
 ```
 
 - **`excludedRiskLevels`**: Array of risk levels to block entirely
 - **`excludedSkills`**: Array of specific skill IDs to block
-- **`loggingEnabled`**: Log blocked skills to stderr for audit (default: `true`)
 
 Blocked skills are excluded from both the vault and the generated pointers — they are never loaded into context.
 

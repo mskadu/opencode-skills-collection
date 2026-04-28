@@ -6,13 +6,11 @@ import type { RiskLevel } from "./risk-level.js";
 export interface SkillRiskFilterConfig {
   excludedRiskLevels?: RiskLevel[];
   excludedSkills?: string[];
-  loggingEnabled?: boolean;
 }
 
 const DEFAULT_CONFIG: SkillRiskFilterConfig = {
   excludedRiskLevels: [],
   excludedSkills: [],
-  loggingEnabled: true,
 };
 
 /**
@@ -51,10 +49,6 @@ export function loadFilterConfig(
       excludedSkills: Array.isArray(parsed.excludedSkills)
         ? (parsed.excludedSkills as string[])
         : DEFAULT_CONFIG.excludedSkills,
-      loggingEnabled:
-        typeof parsed.loggingEnabled === "boolean"
-          ? parsed.loggingEnabled
-          : DEFAULT_CONFIG.loggingEnabled,
     };
   } catch {
     return { ...DEFAULT_CONFIG };
