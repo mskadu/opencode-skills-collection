@@ -22,6 +22,14 @@ function parseFrontmatterField(content: string, field: string): string {
 }
 
 /**
+ * Normalizes a parsed risk value to a valid RiskLevel, or "unknown" if invalid.
+ */
+function normalizeRisk(parsed: string | undefined): RiskLevel {
+  const valid: RiskLevel[] = ["none", "safe", "critical", "offensive", "unknown"];
+  return valid.includes(parsed as RiskLevel) ? (parsed as RiskLevel) : "unknown";
+}
+
+/**
  * Derives a category slug from a skill folder name by taking the
  * first hyphen-separated segment (e.g. "laravel-expert" → "laravel",
  * "wordpress-core" → "wordpress", "php-pro" → "php").
@@ -51,7 +59,7 @@ function buildIndexFromBundledSkills(bundledSkillsPath: string): SkillIndexEntry
     const description = parseFrontmatterField(content, "description") || name;
     const category = parseFrontmatterField(content, "category") || categoryFromFolderName(entry);
     const riskRaw = parseFrontmatterField(content, "risk");
-    const risk: RiskLevel = (riskRaw as RiskLevel) || "unknown";
+    const risk = normalizeRisk(riskRaw);
 
     index.push({ id: entry, category, name, description, risk });
   }

@@ -45,7 +45,8 @@ export function runSkillPointer(options: SkillPointerOptions): void {
   ensureDir(vaultDir);
 
   const index = loadSkillsIndex(options.bundledSkillsPath);
-  const config = loadFilterConfig(options.configPath);
+  const configPath = options.configPath || path.join(os.homedir(), ".config", "opencode", "skill-filter.jsonc");
+  const config = loadFilterConfig(configPath);
   const filteredIndex = filterIndex(index, config);
   installSkillsToVault(options.bundledSkillsPath, vaultDir, filteredIndex);
   generatePointers(options.activeSkillsDir, vaultDir, filteredIndex);

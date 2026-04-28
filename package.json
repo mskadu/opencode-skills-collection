@@ -34,12 +34,14 @@
   "author": "Davide Ladisa <info@davideladisa.it>",
   "license": "MIT",
   "dependencies": {
-    "@opencode-ai/plugin": "^1.4.0"
+    "@opencode-ai/plugin": "^1.4.0",
+    "strip-json-comments": "^5.0.3"
   },
   "devDependencies": {
     "@opencode-ai/sdk": "^1.4.0",
     "@types/bun": "latest",
     "@types/node": "^25.5.2",
+    "@types/strip-json-comments": "^0.0.30",
     "typescript": "^6.0.2"
   }
 }

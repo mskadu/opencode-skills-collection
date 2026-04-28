@@ -102,7 +102,7 @@ describe("filterIndex", () => {
 
 describe("loadFilterConfig", () => {
   test("returns defaults for nonexistent file", () => {
-    const config = loadFilterConfig("/tmp/nonexistent-opencode-test-" + Date.now() + ".jsonc");
+    const config = loadFilterConfig(path.join(os.tmpdir(), `nonexistent-opencode-test-${Date.now()}.jsonc`));
     expect(config.excludedRiskLevels).toEqual([]);
     expect(config.excludedSkills).toEqual([]);
   });

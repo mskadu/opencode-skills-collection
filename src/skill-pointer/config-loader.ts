@@ -1,6 +1,7 @@
 import os from "os";
 import path from "path";
 import fs from "fs";
+import stripJsonComments from "strip-json-comments";
 import type { RiskLevel } from "./risk-level.js";
 
 export interface SkillRiskFilterConfig {
@@ -15,12 +16,10 @@ const DEFAULT_CONFIG: SkillRiskFilterConfig = {
 
 /**
  * Strips JSONC comments so content can be parsed as plain JSON.
- * Does NOT handle `//` inside string values.
+ * Uses strip-json-comments library to properly handle strings.
  */
 function stripJsoncComments(content: string): string {
-  let result = content.replace(/\/\*[\s\S]*?\*\//g, "");
-  result = result.replace(/\/\/.*$/gm, "");
-  return result;
+  return stripJsonComments(content);
 }
 
 /**
