@@ -41,7 +41,7 @@
     "@opencode-ai/sdk": "^1.4.0",
     "@types/bun": "latest",
     "@types/node": "^25.5.2",
-    "@types/strip-json-comments": "^0.0.30",
+    "@types/strip-json-comments": "^3.0.0",
     "typescript": "^6.0.2"
   }
 }
