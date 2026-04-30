@@ -23,7 +23,7 @@ function buildPointerContent(
   return `---
 name: ${category}${POINTER_SUFFIX}
 description: "Pointer to a library of ${skillCount} specialized ${title} skills. Use when working on ${category}-related tasks."
-risk: safe
+risk: none
 ---
 
 # ${title} Capability Library 🎯
@@ -65,6 +65,18 @@ export function generatePointers(
     const cat = entry.category ?? UNCATEGORIZED_CATEGORY;
     if (!byCategory.has(cat)) byCategory.set(cat, []);
     byCategory.get(cat)!.push(entry);
+  }
+
+  const expectedPointers = new Set(
+    [...byCategory.keys()].map((c) => `${c}${POINTER_SUFFIX}`)
+  );
+  if (fs.existsSync(activeSkillsDir)) {
+    for (const dirent of fs.readdirSync(activeSkillsDir, { withFileTypes: true })) {
+      if (!dirent.isDirectory() || !dirent.name.endsWith(POINTER_SUFFIX)) continue;
+      if (!expectedPointers.has(dirent.name)) {
+        fs.rmSync(path.join(activeSkillsDir, dirent.name), { recursive: true, force: true });
+      }
+    }
   }
 
   for (const [categoryName, skills] of byCategory.entries()) {

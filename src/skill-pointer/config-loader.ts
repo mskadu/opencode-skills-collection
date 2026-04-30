@@ -14,13 +14,14 @@ const DEFAULT_CONFIG: SkillRiskFilterConfig = {
   excludedSkills: [],
 };
 
-/**
- * Strips JSONC comments so content can be parsed as plain JSON.
- * Uses strip-json-comments library to properly handle strings.
- */
-function stripJsoncComments(content: string): string {
-  return stripJsonComments(content);
-}
+export const DEFAULT_FILTER_CONFIG_PATH = path.join(
+  os.homedir(),
+  ".config",
+  "opencode",
+  "skill-filter.jsonc"
+);
+
+const VALID_RISK_LEVELS: RiskLevel[] = ["none", "safe", "critical", "offensive", "unknown"];
 
 /**
  * Loads filter config from skill-filter.jsonc. Missing file or section returns defaults.
@@ -29,8 +30,7 @@ function stripJsoncComments(content: string): string {
 export function loadFilterConfig(
   configPath?: string
 ): SkillRiskFilterConfig {
-  const resolvedPath =
-    configPath ?? path.join(os.homedir(), ".config", "opencode", "skill-filter.jsonc");
+  const resolvedPath = configPath ?? DEFAULT_FILTER_CONFIG_PATH;
 
   if (!fs.existsSync(resolvedPath)) {
     return { ...DEFAULT_CONFIG };
@@ -38,12 +38,14 @@ export function loadFilterConfig(
 
   try {
     const raw = fs.readFileSync(resolvedPath, "utf-8");
-    const stripped = stripJsoncComments(raw);
+    const stripped = stripJsonComments(raw);
     const parsed = JSON.parse(stripped) as Record<string, unknown>;
 
     return {
       excludedRiskLevels: Array.isArray(parsed.excludedRiskLevels)
-        ? (parsed.excludedRiskLevels as RiskLevel[])
+        ? (parsed.excludedRiskLevels.filter((v: unknown) =>
+            VALID_RISK_LEVELS.includes(v as RiskLevel)
+          ) as RiskLevel[])
         : DEFAULT_CONFIG.excludedRiskLevels,
       excludedSkills: Array.isArray(parsed.excludedSkills)
         ? (parsed.excludedSkills as string[])

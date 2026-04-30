@@ -5,7 +5,7 @@ import { ensureDir } from "../utils/fs.utils.js";
 import { generatePointers } from "./pointer-generator.js";
 import { installSkillsToVault, loadSkillsIndex } from "./vault-installer.js";
 import { filterIndex } from "./skill-risk-filter.js";
-import { loadFilterConfig } from "./config-loader.js";
+import { loadFilterConfig, DEFAULT_FILTER_CONFIG_PATH } from "./config-loader.js";
 
 export interface SkillPointerOptions {
   /** Absolute path where OpenCode looks for active skills. */
@@ -45,7 +45,7 @@ export function runSkillPointer(options: SkillPointerOptions): void {
   ensureDir(vaultDir);
 
   const index = loadSkillsIndex(options.bundledSkillsPath);
-  const configPath = options.configPath || path.join(os.homedir(), ".config", "opencode", "skill-filter.jsonc");
+  const configPath = options.configPath ?? DEFAULT_FILTER_CONFIG_PATH;
   const config = loadFilterConfig(configPath);
   const filteredIndex = filterIndex(index, config);
   installSkillsToVault(options.bundledSkillsPath, vaultDir, filteredIndex);
