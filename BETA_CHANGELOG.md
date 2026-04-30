@@ -4,6 +4,24 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.0.0-beta.1] - 2026-04-28
+### :sparkles: New Features
+- [`64174b3`](https://github.com/FrancoStino/opencode-skills-collection/commit/64174b3ef69132aebc102d03f351d3045f8b2940) - introduce skill risk filter for configurable skill loading *(commit by [@FrancoStino](https://github.com/FrancoStino))*
+- [`f73c223`](https://github.com/FrancoStino/opencode-skills-collection/commit/f73c22369f16bd9b7612829dc228f5527d5622f7) - add GitHub Actions workflows for issue triage and opencode *(commit by [@FrancoStino](https://github.com/FrancoStino))*
+- [`8b80018`](https://github.com/FrancoStino/opencode-skills-collection/commit/8b8001864304237ed39c8abd27fb53ae43320b83) - **opencode**: add GitHub Actions workflow for pull request reviews *(commit by [@FrancoStino](https://github.com/FrancoStino))*
+
+### :bug: Bug Fixes
+- [`150815e`](https://github.com/FrancoStino/opencode-skills-collection/commit/150815e45cb0539d5d7f921ef8ee89d7392492fe) - apply CodeRabbit auto-fixes *(commit by [@coderabbitai[bot]](https://github.com/apps/coderabbitai))*
+- [`9e1446d`](https://github.com/FrancoStino/opencode-skills-collection/commit/9e1446d6f48247480560a00004bdde798835108f) - **opencode**: update GITHUB_TOKEN to use WORKFLOW_TOKEN *(commit by [@FrancoStino](https://github.com/FrancoStino))*
+- [`2853612`](https://github.com/FrancoStino/opencode-skills-collection/commit/28536121d4375cdb9699081d589a05da71be0a14) - **opencode**: update GITHUB_TOKEN usage in workflow *(commit by [@FrancoStino](https://github.com/FrancoStino))*
+
+### :recycle: Refactors
+- [`a582e82`](https://github.com/FrancoStino/opencode-skills-collection/commit/a582e821eb4bfb942e7e9226405342915ee1ca71) - remove loggingEnabled from skill risk filter configuration *(commit by [@FrancoStino](https://github.com/FrancoStino))*
+
+### :wrench: Chores
+- [`1eb2bad`](https://github.com/FrancoStino/opencode-skills-collection/commit/1eb2bad45a32feea3844b58bcb7a1887832a37e0) - bump version to 3.0.0-beta.1 *(commit by [@github-actions[bot]](https://github.com/apps/github-actions))*
+
+
 ## [2.0.0-beta.3] - 2026-04-09
 ### :sparkles: New Features
 - [`833e969`](https://github.com/FrancoStino/opencode-skills-collection/commit/833e969819877633a479bdd0d5fd534a3e123e14) - Add GitHub Actions workflow for beta release *(commit by [@FrancoStino](https://github.com/FrancoStino))*
@@ -109,3 +127,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [2.0.0-beta.1]: https://github.com/FrancoStino/opencode-skills-collection/compare/v1.0.196...2.0.0-beta.1
 [2.0.0-beta.2]: https://github.com/FrancoStino/opencode-skills-collection/compare/v1.0.210...2.0.0-beta.2
 [2.0.0-beta.3]: https://github.com/FrancoStino/opencode-skills-collection/compare/2.0.0-beta.2...2.0.0-beta.3
+[3.0.0-beta.1]: https://github.com/FrancoStino/opencode-skills-collection/compare/v2.0.282...3.0.0-beta.1

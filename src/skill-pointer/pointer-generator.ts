@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
 import { POINTER_SUFFIX, SKILL_FILENAME, UNCATEGORIZED_CATEGORY } from "../constants/constants.js";
-import { ensureDir, listSubdirectories } from "../utils/fs.utils.js";
+import { ensureDir } from "../utils/fs.utils.js";
 import type { SkillIndexEntry } from "./vault-installer.js";
 
 function buildPointerContent(
@@ -23,7 +23,7 @@ function buildPointerContent(
   return `---
 name: ${category}${POINTER_SUFFIX}
 description: "Pointer to a library of ${skillCount} specialized ${title} skills. Use when working on ${category}-related tasks."
-risk: safe
+risk: none
 ---
 
 # ${title} Capability Library 🎯
@@ -60,8 +60,6 @@ export function generatePointers(
   vaultDir: string,
   index: SkillIndexEntry[] = []
 ): void {
-  const categoryDirs = listSubdirectories(vaultDir);
-
   const byCategory = new Map<string, SkillIndexEntry[]>();
   for (const entry of index) {
     const cat = entry.category ?? UNCATEGORIZED_CATEGORY;
@@ -69,23 +67,20 @@ export function generatePointers(
     byCategory.get(cat)!.push(entry);
   }
 
-  for (const categoryName of categoryDirs) {
-    const categoryVaultPath = path.join(vaultDir, categoryName);
-    let skills = byCategory.get(categoryName) ?? [];
-
-    if (skills.length === 0) {
-      const subDirs = fs.readdirSync(categoryVaultPath).filter((e) =>
-        fs.statSync(path.join(categoryVaultPath, e)).isDirectory()
-      );
-      if (subDirs.length === 0) continue;
-
-      skills = subDirs.map((dir) => ({
-        id: dir,
-        category: categoryName,
-        name: dir.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase()),
-        description: dir.replace(/-/g, " "),
-      }));
+  const expectedPointers = new Set(
+    [...byCategory.keys()].map((c) => `${c}${POINTER_SUFFIX}`)
+  );
+  if (fs.existsSync(activeSkillsDir)) {
+    for (const dirent of fs.readdirSync(activeSkillsDir, { withFileTypes: true })) {
+      if (!dirent.isDirectory() || !dirent.name.endsWith(POINTER_SUFFIX)) continue;
+      if (!expectedPointers.has(dirent.name)) {
+        fs.rmSync(path.join(activeSkillsDir, dirent.name), { recursive: true, force: true });
+      }
     }
+  }
+
+  for (const [categoryName, skills] of byCategory.entries()) {
+    const categoryVaultPath = path.join(vaultDir, categoryName);
 
     const pointerDir = path.join(
       activeSkillsDir,

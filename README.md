@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="./docs/logo.svg" alt="OpenCode Skills Collection"/>
+<img src="docs/assets/logo.svg" alt="OpenCode Skills Collection"/>
 
 <br/>
 <br/>
@@ -36,8 +36,7 @@ The plugin operates in two phases:
 
 **1. Local deployment (startup)**
 
-When OpenCode starts, the plugin copies the pre-bundled skills from the npm package and runs the **SkillPointer pipeline
-**:
+When OpenCode starts, the plugin copies the pre-bundled skills from the npm package and runs the SkillPointer pipeline:
 
 ```
 bundled-skills/ (npm package)
@@ -88,7 +87,7 @@ After the first startup, your `~/.config/opencode/` directory looks like this:
 
 |                      | Without SkillPointer | With SkillPointer   |
 |----------------------|----------------------|---------------------|
-| Folders in `skills/` | ~1000                 | ~35                 |
+| Folders in `skills/` | ~1000                | ~35                 |
 | Tokens at startup    | ~80,000              | ~255                |
 | Skills available     | All injected upfront | On-demand via vault |
 | Compaction loops     | ✗ frequent           | ✓ none              |
@@ -137,6 +136,39 @@ opencode run /refactor clean up this function
 "Help me brainstorm ideas for a REST API design"
 "Refactor this function to be more readable"
 ```
+
+---
+
+## Skill Risk Filter
+
+The plugin supports configurable risk-based filtering of skills. By default, **all skills are loaded** — filtering is
+opt-in.
+
+Each skill in the index has a `risk` field with one of these levels:
+
+| Level       | Description                                                        |
+|-------------|--------------------------------------------------------------------|
+| `none`      | No risk assessment                                                 |
+| `safe`      | Verified safe                                                      |
+| `critical`  | Contains sensitive operations                                      |
+| `offensive` | Contains offensive security tools (exploits, reverse shells, etc.) |
+| `unknown`   | Not yet classified                                                 |
+
+### Configuration
+
+Create a `~/.config/opencode/skill-filter.jsonc` file:
+
+```jsonc
+{
+  "excludedRiskLevels": ["offensive"],
+  "excludedSkills": ["windows-privilege-escalation"]
+}
+```
+
+- **`excludedRiskLevels`**: Array of risk levels to block entirely
+- **`excludedSkills`**: Array of specific skill IDs to block
+
+Blocked skills are excluded from both the vault and the generated pointers — they are never loaded into context.
 
 ---
 

@@ -43,23 +43,18 @@ describe("Pointer Generator", () => {
     expect(content).toContain("1 specialized");
   });
 
-  test("builds stub entries when vault has subdirs but index is empty", () => {
+  test("does not generate pointers when index is empty even if vault has subdirs", () => {
     const categoryName = "uncategorized";
     fs.mkdirSync(path.join(vaultDir, categoryName, "some-skill"), { recursive: true });
     fs.mkdirSync(path.join(vaultDir, categoryName, "another-skill"), { recursive: true });
 
     generatePointers(activeDir, vaultDir, []);
 
-    const pointerPath = path.join(activeDir, `${categoryName}${POINTER_SUFFIX}`, SKILL_FILENAME);
-    expect(fs.existsSync(pointerPath)).toBe(true);
-
-    const content = fs.readFileSync(pointerPath, "utf-8");
-    expect(content).toContain("some-skill");
-    expect(content).toContain("another-skill");
-    expect(content).toContain("2 specialized");
+    const pointerPath = path.join(activeDir, `${categoryName}${POINTER_SUFFIX}`);
+    expect(fs.existsSync(pointerPath)).toBe(false);
   });
 
-  test("skips category when vault directory is empty", () => {
+  test("skips category when not present in index", () => {
     const categoryName = "empty-cat";
     fs.mkdirSync(path.join(vaultDir, categoryName), { recursive: true });
 

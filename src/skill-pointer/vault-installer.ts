@@ -2,12 +2,14 @@ import fs from "fs";
 import path from "path";
 import { ensureDir } from "../utils/fs.utils.js";
 import { UNCATEGORIZED_CATEGORY } from "../constants/constants.js";
+import type { RiskLevel } from "./risk-level.js";
 
 export interface SkillIndexEntry {
   id: string;
   category: string;
   name: string;
   description: string;
+  risk?: RiskLevel;
 }
 
 /**
@@ -17,6 +19,16 @@ export interface SkillIndexEntry {
 function parseFrontmatterField(content: string, field: string): string {
   const match = content.match(new RegExp(`^${field}:\\s*["']?([^"'\\n]+)["']?`, "m"));
   return match ? match[1].trim() : "";
+}
+
+/**
+ * Normalizes a parsed risk value to a valid RiskLevel, or "unknown" if invalid.
+ */
+function normalizeRisk(parsed: string | undefined): RiskLevel {
+  if (!parsed) return "unknown";
+  const lowered = parsed.trim().toLowerCase() as RiskLevel;
+  const valid: RiskLevel[] = ["none", "safe", "critical", "offensive", "unknown"];
+  return valid.includes(lowered) ? lowered : "unknown";
 }
 
 /**
@@ -48,10 +60,16 @@ function buildIndexFromBundledSkills(bundledSkillsPath: string): SkillIndexEntry
     const name = parseFrontmatterField(content, "name") || entry;
     const description = parseFrontmatterField(content, "description") || name;
     const category = parseFrontmatterField(content, "category") || categoryFromFolderName(entry);
+    const riskRaw = parseFrontmatterField(content, "risk");
+    const risk = normalizeRisk(riskRaw);
 
-    index.push({ id: entry, category, name, description });
+    index.push({ id: entry, category, name, description, risk });
   }
   return index;
+}
+
+function isSafePathComponent(segment: string): boolean {
+  return !segment.includes("..") && !segment.includes(path.sep) && !segment.includes("/");
 }
 
 /**
@@ -64,7 +82,10 @@ export function loadSkillsIndex(bundledSkillsPath: string): SkillIndexEntry[] {
   if (fs.existsSync(indexPath)) {
     try {
       const raw = fs.readFileSync(indexPath, "utf-8");
-      return JSON.parse(raw) as SkillIndexEntry[];
+      return (JSON.parse(raw) as SkillIndexEntry[]).map((entry) => ({
+        ...entry,
+        risk: normalizeRisk(entry.risk as string | undefined),
+      }));
     } catch {
       // fall through to dynamic generation
     }
@@ -83,22 +104,38 @@ export function installSkillsToVault(
 ): void {
   if (!fs.existsSync(bundledSkillsPath)) return;
 
-  const categoryMap = new Map(
-    index.map((e) => [e.id, e.category ?? UNCATEGORIZED_CATEGORY])
-  );
+  const expected = new Map<string, Set<string>>();
+  for (const entry of index) {
+    if (!isSafePathComponent(entry.id) || !isSafePathComponent(entry.category ?? UNCATEGORIZED_CATEGORY)) continue;
+    const category = entry.category ?? UNCATEGORIZED_CATEGORY;
+    if (!expected.has(category)) expected.set(category, new Set());
+    expected.get(category)!.add(entry.id);
+  }
 
-  for (const entry of fs.readdirSync(bundledSkillsPath)) {
-    if (
-      entry.startsWith(".") ||
-      entry === "skills_index.json" ||
-      entry === "README.md"
-    ) continue;
+  if (fs.existsSync(vaultDir)) {
+    for (const category of fs.readdirSync(vaultDir)) {
+      const categoryPath = path.join(vaultDir, category);
+      if (!fs.statSync(categoryPath).isDirectory()) continue;
+      const allowedSkills = expected.get(category) ?? new Set<string>();
+      for (const skillId of fs.readdirSync(categoryPath)) {
+        const skillPath = path.join(categoryPath, skillId);
+        if (!allowedSkills.has(skillId)) {
+          fs.rmSync(skillPath, { recursive: true, force: true });
+        }
+      }
+      if (fs.readdirSync(categoryPath).length === 0) {
+        fs.rmSync(categoryPath, { recursive: true, force: true });
+      }
+    }
+  }
 
-    const srcPath = path.join(bundledSkillsPath, entry);
-    if (!fs.statSync(srcPath).isDirectory()) continue;
+  for (const entry of index) {
+    if (!isSafePathComponent(entry.id) || !isSafePathComponent(entry.category ?? UNCATEGORIZED_CATEGORY)) continue;
+    const srcPath = path.join(bundledSkillsPath, entry.id);
+    if (!fs.existsSync(srcPath) || !fs.statSync(srcPath).isDirectory()) continue;
 
-    const category = categoryMap.get(entry) ?? UNCATEGORIZED_CATEGORY;
-    const destPath = path.join(vaultDir, category, entry);
+    const category = entry.category ?? UNCATEGORIZED_CATEGORY;
+    const destPath = path.join(vaultDir, category, entry.id);
 
     ensureDir(path.join(vaultDir, category));
     fs.cpSync(srcPath, destPath, { recursive: true, force: true });
