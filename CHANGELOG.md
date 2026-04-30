@@ -4,6 +4,29 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v3.0.0] - 2026-04-30
+### :sparkles: New Features
+- [`64174b3`](https://github.com/FrancoStino/opencode-skills-collection/commit/64174b3ef69132aebc102d03f351d3045f8b2940) - introduce skill risk filter for configurable skill loading *(commit by [@FrancoStino](https://github.com/FrancoStino))*
+- [`f73c223`](https://github.com/FrancoStino/opencode-skills-collection/commit/f73c22369f16bd9b7612829dc228f5527d5622f7) - add GitHub Actions workflows for issue triage and opencode *(commit by [@FrancoStino](https://github.com/FrancoStino))*
+- [`8b80018`](https://github.com/FrancoStino/opencode-skills-collection/commit/8b8001864304237ed39c8abd27fb53ae43320b83) - **opencode**: add GitHub Actions workflow for pull request reviews *(commit by [@FrancoStino](https://github.com/FrancoStino))*
+
+### :bug: Bug Fixes
+- [`150815e`](https://github.com/FrancoStino/opencode-skills-collection/commit/150815e45cb0539d5d7f921ef8ee89d7392492fe) - apply CodeRabbit auto-fixes *(commit by [@coderabbitai[bot]](https://github.com/apps/coderabbitai))*
+- [`9e1446d`](https://github.com/FrancoStino/opencode-skills-collection/commit/9e1446d6f48247480560a00004bdde798835108f) - **opencode**: update GITHUB_TOKEN to use WORKFLOW_TOKEN *(commit by [@FrancoStino](https://github.com/FrancoStino))*
+- [`2853612`](https://github.com/FrancoStino/opencode-skills-collection/commit/28536121d4375cdb9699081d589a05da71be0a14) - **opencode**: update GITHUB_TOKEN usage in workflow *(commit by [@FrancoStino](https://github.com/FrancoStino))*
+- [`a0a84e1`](https://github.com/FrancoStino/opencode-skills-collection/commit/a0a84e1ec3881ab4403821c1678a1ea838d88c3f) - change pull-requests permission from read to write *(commit by [@FrancoStino](https://github.com/FrancoStino))*
+- [`bbfbcf4`](https://github.com/FrancoStino/opencode-skills-collection/commit/bbfbcf46ffd73ff1a5234a3597bd1ff44ced740f) - change cron schedule to run daily at midnight *(commit by [@FrancoStino](https://github.com/FrancoStino))*
+- [`fae4ed1`](https://github.com/FrancoStino/opencode-skills-collection/commit/fae4ed1e87920b610944ed62acefa76046ae3fc0) - **deps-dev**: update @types/bun to use latest version *(commit by [@FrancoStino](https://github.com/FrancoStino))*
+- [`112d557`](https://github.com/FrancoStino/opencode-skills-collection/commit/112d55782cf2d2941ac99a16d18389bf4e9aea77) - **opencode**: update permissions in GitHub Actions workflow *(commit by [@FrancoStino](https://github.com/FrancoStino))*
+
+### :recycle: Refactors
+- [`a582e82`](https://github.com/FrancoStino/opencode-skills-collection/commit/a582e821eb4bfb942e7e9226405342915ee1ca71) - remove loggingEnabled from skill risk filter configuration *(commit by [@FrancoStino](https://github.com/FrancoStino))*
+
+### :wrench: Chores
+- [`1eb2bad`](https://github.com/FrancoStino/opencode-skills-collection/commit/1eb2bad45a32feea3844b58bcb7a1887832a37e0) - bump version to 3.0.0-beta.1 *(commit by [@github-actions[bot]](https://github.com/apps/github-actions))*
+- [`6b7831b`](https://github.com/FrancoStino/opencode-skills-collection/commit/6b7831b58d4cb17ef1c9f5ee6b28da760054b2f2) - bump version to v3.0.0 *(commit by [@github-actions[bot]](https://github.com/apps/github-actions))*
+
+
 ## [v2.0.300] - 2026-04-30
 ### :wrench: Chores
 - [`ce1c626`](https://github.com/FrancoStino/opencode-skills-collection/commit/ce1c62662176a433ecfb39ac0c45c40fc57b52ff) - sync skills and bump version to v2.0.300 *(commit by [@github-actions[bot]](https://github.com/apps/github-actions))*
@@ -3095,3 +3118,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [v2.0.298]: https://github.com/FrancoStino/opencode-skills-collection/compare/v2.0.297...v2.0.298
 [v2.0.299]: https://github.com/FrancoStino/opencode-skills-collection/compare/v2.0.298...v2.0.299
 [v2.0.300]: https://github.com/FrancoStino/opencode-skills-collection/compare/v2.0.299...v2.0.300
+[v3.0.0]: https://github.com/FrancoStino/opencode-skills-collection/compare/v2.0.300...v3.0.0
