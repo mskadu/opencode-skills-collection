@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v3.0.1] - 2026-05-01
+### :wrench: Chores
+- [`38cc48a`](https://github.com/FrancoStino/opencode-skills-collection/commit/38cc48ac8af26cdb5bf6d2b98ae27cce7f57b6ef) - sync skills and bump version to v3.0.1 *(commit by [@github-actions[bot]](https://github.com/apps/github-actions))*
+
+
 ## [v3.0.0] - 2026-04-30
 ### :sparkles: New Features
 - [`64174b3`](https://github.com/FrancoStino/opencode-skills-collection/commit/64174b3ef69132aebc102d03f351d3045f8b2940) - introduce skill risk filter for configurable skill loading *(commit by [@FrancoStino](https://github.com/FrancoStino))*
@@ -3119,3 +3124,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [v2.0.299]: https://github.com/FrancoStino/opencode-skills-collection/compare/v2.0.298...v2.0.299
 [v2.0.300]: https://github.com/FrancoStino/opencode-skills-collection/compare/v2.0.299...v2.0.300
 [v3.0.0]: https://github.com/FrancoStino/opencode-skills-collection/compare/v2.0.300...v3.0.0
+[v3.0.1]: https://github.com/FrancoStino/opencode-skills-collection/compare/v3.0.0...v3.0.1
