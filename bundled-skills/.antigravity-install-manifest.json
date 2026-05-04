@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-05-03T01:44:58.268Z",
+  "updatedAt": "2026-05-04T01:45:30.378Z",
   "entries": [
     "00-andruia-consultant",
     "007",
@@ -625,6 +625,7 @@
     "gha-security-review",
     "git-advanced-workflows",
     "git-hooks-automation",
+    "git-pr-review",
     "git-pr-workflows-git-workflow",
     "git-pr-workflows-onboard",
     "git-pr-workflows-pr-enhance",
@@ -1193,6 +1194,7 @@
     "similarity-search-patterns",
     "simplify-code",
     "site-architecture",
+    "skill-audit",
     "skill-check",
     "skill-creator",
     "skill-creator-ms",
