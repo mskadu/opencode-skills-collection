@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-05-04T01:45:30.378Z",
+  "updatedAt": "2026-05-05T01:45:37.168Z",
   "entries": [
     "00-andruia-consultant",
     "007",
@@ -1021,6 +1021,7 @@
     "product-manager",
     "product-manager-toolkit",
     "product-marketing-context",
+    "production-audit",
     "production-code-audit",
     "production-scheduling",
     "professional-proofreader",
@@ -1072,6 +1073,7 @@
     "readme",
     "recallmax",
     "receiving-code-review",
+    "recursive-context-pruning-token-budgeting",
     "red-team-tactics",
     "red-team-tools",
     "reddit-automation",
