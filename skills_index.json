@@ -1594,6 +1594,28 @@
     }
   },
   {
+    "id": "aomi-transact",
+    "path": "skills/aomi-transact",
+    "category": "ai-ml",
+    "name": "aomi-transact",
+    "description": "Build natural-language crypto/DeFi agents and EVM MCP plugins (Claude Code, Cursor, Codex, Gemini). Aomi turns prompts into wallet-signed txs on Ethereum, Base, Arbitrum, Optimism, Polygon, Linea \u2014 non-custodial, fork-simulated. 40+ apps: Uniswap, Aave, Lido, Morpho, GMX, Hyperliquid, Polymarket.",
+    "risk": "critical",
+    "source": "aomi-labs/skills (MIT)",
+    "date_added": "2026-05-06",
+    "plugin": {
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": []
+    }
+  },
+  {
     "id": "api-design-principles",
     "path": "skills/api-design-principles",
     "category": "backend",
@@ -19138,6 +19160,28 @@
     }
   },
   {
+    "id": "mock-hunter",
+    "path": "skills/mock-hunter",
+    "category": "testing",
+    "name": "mock-hunter",
+    "description": "Audit a live web page in five phases (catalog, click, trace, classify, report) to identify mock data, hardcoded values, LLM-generated metrics, and broken endpoints. Outputs a markdown report with REAL/MOCK/LLM/HARDCODED/BROKEN/UNKNOWN verdicts per visible value.",
+    "risk": "safe",
+    "source": "community",
+    "date_added": "2026-05-07",
+    "plugin": {
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": []
+    }
+  },
+  {
     "id": "modern-javascript-patterns",
     "path": "skills/modern-javascript-patterns",
     "category": "development",
@@ -19434,6 +19478,28 @@
     "risk": "none",
     "source": "community",
     "date_added": "2026-03-06",
+    "plugin": {
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": []
+    }
+  },
+  {
+    "id": "multi-agent-architect",
+    "path": "skills/multi-agent-architect",
+    "category": "ai-ml",
+    "name": "multi-agent-architect",
+    "description": "Design and optimize production-grade multi-agent systems with LangGraph, LangChain, and DeepAgents for complex AI workflows.",
+    "risk": "safe",
+    "source": "community",
+    "date_added": null,
     "plugin": {
       "targets": {
         "codex": "supported",
@@ -22448,7 +22514,7 @@
     "category": "security",
     "name": "production-audit",
     "description": "Audit a shipped repo for production-readiness gaps across RLS, webhooks, secrets, grants, Stripe idempotency, mobile UX, and deployment health.",
-    "risk": "safe",
+    "risk": "critical",
     "source": "community",
     "date_added": "2026-05-04",
     "plugin": {
@@ -23905,6 +23971,28 @@
     "risk": "unknown",
     "source": "https://github.com/coreyhaines31/marketingskills",
     "date_added": "2026-03-21",
+    "plugin": {
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": []
+    }
+  },
+  {
+    "id": "rich-elicitation",
+    "path": "skills/rich-elicitation",
+    "category": "productivity",
+    "name": "rich-elicitation",
+    "description": "Asks clarifying questions in multiple rounds before starting ambiguous tasks. Fires when 2+ task dimensions each have 3+ viable answers.",
+    "risk": "none",
+    "source": "self",
+    "date_added": "2026-05-07",
     "plugin": {
       "targets": {
         "codex": "supported",
@@ -29617,6 +29705,28 @@
     "risk": "unknown",
     "source": "community",
     "date_added": "2026-02-27",
+    "plugin": {
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": []
+    }
+  },
+  {
+    "id": "unity-ai-game-creator",
+    "path": "skills/unity-ai-game-creator",
+    "category": "game-development",
+    "name": "unity-ai-game-creator",
+    "description": "Transform raw game ideas into complete Unity projects with AI-powered asset generation, scene blueprints, music/SFX prompts, and step-by-step development procedures using Unity 6+ and modern AI tools.",
+    "risk": "safe",
+    "source": "community",
+    "date_added": "2026-05-08",
     "plugin": {
       "targets": {
         "codex": "supported",
