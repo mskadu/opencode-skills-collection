@@ -774,6 +774,28 @@
     }
   },
   {
+    "id": "agenttrace-session-audit",
+    "path": "skills/agenttrace-session-audit",
+    "category": "development",
+    "name": "agenttrace-session-audit",
+    "description": "Audit local AI coding-agent sessions with agenttrace for cost, tool failures, latency, anomalies, health, diffs, and CI gates.",
+    "risk": "safe",
+    "source": "community",
+    "date_added": "2026-05-10",
+    "plugin": {
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": []
+    }
+  },
+  {
     "id": "ai-agent-development",
     "path": "skills/ai-agent-development",
     "category": "granular-workflow-bundle",
@@ -11162,6 +11184,28 @@
     }
   },
   {
+    "id": "ejentum-reasoning-harness",
+    "path": "skills/ejentum-reasoning-harness",
+    "category": "ai-ml",
+    "name": "ejentum-reasoning-harness",
+    "description": "MCP server exposing four cognitive harness modes (reasoning, code, anti-deception, memory). Each call returns an engineered scaffold (failure pattern, procedure, suppression vectors, falsification test) the agent ingests before generating.",
+    "risk": "critical",
+    "source": "community",
+    "date_added": "2026-05-10",
+    "plugin": {
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "manual",
+        "summary": "Install the ejentum-mcp MCP server (`npx -y ejentum-mcp`) and provide an EJENTUM_API_KEY env var (free tier: 100 calls, no card, at https://ejentum.com/pricing). Add the server to your client's mcpServers config (Claude Code, Cursor, Cline, Windsurf, Codex CLI, Gemini CLI, Antigravity, or VS Code Copilot Chat).",
+        "docs": "https://github.com/ejentum/ejentum-mcp#installation"
+      },
+      "reasons": []
+    }
+  },
+  {
     "id": "electron-development",
     "path": "skills/electron-development",
     "category": "development",
@@ -15916,6 +15960,28 @@
     }
   },
   {
+    "id": "ingest-youtube",
+    "path": "skills/ingest-youtube",
+    "category": "uncategorized",
+    "name": "ingest-youtube",
+    "description": "Pull a YouTube video transcript into a queryable markdown vault with yt-dlp subtitle discovery, VTT cleanup, metadata frontmatter, and capture-seed stubs.",
+    "risk": "safe",
+    "source": "community",
+    "date_added": "2026-05-09",
+    "plugin": {
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": []
+    }
+  },
+  {
     "id": "inngest",
     "path": "skills/inngest",
     "category": "workflow",
@@ -19165,20 +19231,22 @@
     "category": "testing",
     "name": "mock-hunter",
     "description": "Audit a live web page in five phases (catalog, click, trace, classify, report) to identify mock data, hardcoded values, LLM-generated metrics, and broken endpoints. Outputs a markdown report with REAL/MOCK/LLM/HARDCODED/BROKEN/UNKNOWN verdicts per visible value.",
-    "risk": "safe",
+    "risk": "critical",
     "source": "community",
     "date_added": "2026-05-07",
     "plugin": {
       "targets": {
-        "codex": "supported",
-        "claude": "supported"
+        "codex": "blocked",
+        "claude": "blocked"
       },
       "setup": {
         "type": "none",
         "summary": "",
         "docs": null
       },
-      "reasons": []
+      "reasons": [
+        "explicit_target_restriction"
+      ]
     }
   },
   {
@@ -31531,7 +31599,7 @@
     "path": "skills/x-twitter-scraper",
     "category": "data",
     "name": "x-twitter-scraper",
-    "description": "X (Twitter) data platform skill \u2014 tweet search, user lookup, follower extraction, engagement metrics, giveaway draws, monitoring, webhooks, 19 extraction tools, MCP server.",
+    "description": "X/Twitter automation skill for tweet search, follower export, media download, posting, replies, DMs, webhooks, MCP, SDKs, and the TweetClaw OpenClaw plugin.",
     "risk": "safe",
     "source": "community",
     "date_added": "2026-02-28",

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-05-11T01:55:48.568Z",
+  "updatedAt": "2026-05-12T01:51:45.217Z",
   "entries": [
     "00-andruia-consultant",
     "007",
@@ -35,6 +35,7 @@
     "agentphone",
     "agents-md",
     "agents-v2-py",
+    "agenttrace-session-audit",
     "ai-agent-development",
     "ai-agents-architect",
     "ai-analyzer",
@@ -501,6 +502,7 @@
     "e2e-testing",
     "e2e-testing-patterns",
     "earllm-build",
+    "ejentum-reasoning-harness",
     "electron-development",
     "elixir-pro",
     "elon-musk",
@@ -723,6 +725,7 @@
     "indexing-issue-auditor",
     "industrial-brutalist-ui",
     "infinite-gratitude",
+    "ingest-youtube",
     "inngest",
     "instagram",
     "instagram-automation",
