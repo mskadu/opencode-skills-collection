@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-05-16T01:50:15.647Z",
+  "updatedAt": "2026-05-17T01:54:01.076Z",
   "entries": [
     "00-andruia-consultant",
     "007",
@@ -1082,6 +1082,7 @@
     "readme",
     "recallmax",
     "receiving-code-review",
+    "recsys-pipeline-architect",
     "recursive-context-pruning-token-budgeting",
     "red-team-tactics",
     "red-team-tools",
