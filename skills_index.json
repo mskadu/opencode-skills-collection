@@ -23789,6 +23789,28 @@
     }
   },
   {
+    "id": "recsys-pipeline-architect",
+    "path": "skills/recsys-pipeline-architect",
+    "category": "data-ai",
+    "name": "recsys-pipeline-architect",
+    "description": "Designs composable recommendation, ranking, and feed pipelines using the six-stage Source\u2192Hydrator\u2192Filter\u2192Scorer\u2192Selector\u2192SideEffect framework",
+    "risk": "safe",
+    "source": "community",
+    "date_added": "2026-05-16",
+    "plugin": {
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": []
+    }
+  },
+  {
     "id": "recursive-context-pruning-token-budgeting",
     "path": "skills/recursive-context-pruning-token-budgeting",
     "category": "prompt-engineering",
