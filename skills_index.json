@@ -31732,20 +31732,22 @@
     "category": "data",
     "name": "x-twitter-scraper",
     "description": "X/Twitter automation skill for tweet search, follower export, posting, DMs, webhooks, MCP, SDKs, Hermes Tweet, and TweetClaw.",
-    "risk": "safe",
+    "risk": "critical",
     "source": "community",
     "date_added": "2026-02-28",
     "plugin": {
       "targets": {
-        "codex": "supported",
-        "claude": "supported"
+        "codex": "blocked",
+        "claude": "blocked"
       },
       "setup": {
         "type": "none",
         "summary": "",
         "docs": null
       },
-      "reasons": []
+      "reasons": [
+        "explicit_target_restriction"
+      ]
     }
   },
   {
