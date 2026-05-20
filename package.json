@@ -1,6 +1,6 @@
 {
   "name": "opencode-skills-collection",
-  "version": "3.0.20",
+  "version": "3.0.21",
   "description": "OpenCode CLI plugin that automatically downloads and keeps skills up to date.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -34,13 +34,13 @@
   "author": "Davide Ladisa <info@davideladisa.it>",
   "license": "MIT",
   "dependencies": {
-    "@opencode-ai/plugin": "^1.4.0",
+    "@opencode-ai/plugin": "^1.15.5",
     "strip-json-comments": "^5.0.3"
   },
   "devDependencies": {
-    "@opencode-ai/sdk": "^1.4.0",
+    "@opencode-ai/sdk": "^1.15.5",
     "@types/bun": "latest",
-    "@types/node": "^25.5.2",
+    "@types/node": "^25.9.1",
     "@types/strip-json-comments": "^3.0.0",
     "typescript": "^6.0.2"
   }
