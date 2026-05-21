@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-05-20T02:02:44.073Z",
+  "updatedAt": "2026-05-21T02:01:54.554Z",
   "entries": [
     "00-andruia-consultant",
     "007",
@@ -860,6 +860,7 @@
     "memory-safety-patterns",
     "memory-systems",
     "mental-health-analyzer",
+    "mercury-mcp",
     "mermaid-expert",
     "metasploit-framework",
     "micro-saas-launcher",
@@ -997,6 +998,7 @@
     "performance-testing-review-multi-agent-review",
     "personal-tool-builder",
     "phase-gated-debugging",
+    "photopea-embedded-editor",
     "php-pro",
     "pipecat-friday-agent",
     "pipedrive-automation",

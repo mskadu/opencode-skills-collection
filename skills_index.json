@@ -18830,6 +18830,28 @@
     }
   },
   {
+    "id": "mercury-mcp",
+    "path": "skills/mercury-mcp",
+    "category": "uncategorized",
+    "name": "mercury-mcp",
+    "description": "Cheatsheet for the Mercury (proton) MCP tools. Use when connected to the Mercury MCP server to look up which mercury_* tool to call for messaging teammates, threads, tasks, automations, or admin team-graph edits.",
+    "risk": "safe",
+    "source": "community",
+    "date_added": "2026-05-19",
+    "plugin": {
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": []
+    }
+  },
+  {
     "id": "mermaid-expert",
     "path": "skills/mermaid-expert",
     "category": "content",
@@ -21903,6 +21925,28 @@
     "risk": "safe",
     "source": "community",
     "date_added": "2026-03-28",
+    "plugin": {
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": []
+    }
+  },
+  {
+    "id": "photopea-embedded-editor",
+    "path": "skills/photopea-embedded-editor",
+    "category": "uncategorized",
+    "name": "photopea-embedded-editor",
+    "description": "Embed Photopea in web apps using photopea.js. Covers embedding, file I/O, scripting, exporting, layers, text, filters, and the full Photoshop-compatible API.",
+    "risk": "safe",
+    "source": "community",
+    "date_added": "2026-05-20",
     "plugin": {
       "targets": {
         "codex": "supported",
