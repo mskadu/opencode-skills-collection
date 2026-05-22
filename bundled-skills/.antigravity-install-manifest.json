@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-05-21T02:01:54.554Z",
+  "updatedAt": "2026-05-22T02:03:47.949Z",
   "entries": [
     "00-andruia-consultant",
     "007",
@@ -269,6 +269,7 @@
     "beautiful-prose",
     "behavioral-modes",
     "bevy-ecs-expert",
+    "bilig-workpaper",
     "bill-gates",
     "billing-automation",
     "binary-analysis-patterns",
@@ -1268,6 +1269,7 @@
     "stripe-automation",
     "stripe-integration",
     "subagent-driven-development",
+    "subagent-orchestrator",
     "subject-line-psychologist",
     "supabase-automation",
     "superpowers-lab",
