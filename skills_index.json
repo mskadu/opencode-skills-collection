@@ -1332,9 +1332,9 @@
   {
     "id": "andrej-karpathy",
     "path": "skills/andrej-karpathy",
-    "category": "ai-ml",
+    "category": "uncategorized",
     "name": "andrej-karpathy",
-    "description": "Agente que simula Andrej Karpathy \u2014 ex-Director of AI da Tesla, co-fundador da OpenAI, fundador da Eureka Labs, e o maior educador de deep learning do mundo.",
+    "description": "Behavioral guidelines to reduce common LLM coding mistakes. Use when writing, reviewing, or refactoring code to avoid overcomplication, make surgical changes, surface assumptions, and define verifiable success criteria.",
     "risk": "safe",
     "source": "community",
     "date_added": "2026-03-06",
@@ -21731,6 +21731,28 @@
     "risk": "unknown",
     "source": "community",
     "date_added": "2026-02-27",
+    "plugin": {
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": []
+    }
+  },
+  {
+    "id": "pdf-conversion-router",
+    "path": "skills/pdf-conversion-router",
+    "category": "uncategorized",
+    "name": "pdf-conversion-router",
+    "description": "Use when converting a PDF into another format such as Markdown, HTML, text, JSON, DOCX, or structured notes and the agent must choose the best extraction route, settings, and cleanup strategy for maximum fidelity and readability.",
+    "risk": "safe",
+    "source": "community",
+    "date_added": "2026-05-23",
     "plugin": {
       "targets": {
         "codex": "supported",
