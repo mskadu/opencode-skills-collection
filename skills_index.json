@@ -6598,6 +6598,28 @@
     }
   },
   {
+    "id": "bumblebee",
+    "path": "skills/bumblebee",
+    "category": "security",
+    "name": "bumblebee",
+    "description": "Run Bumblebee supply-chain inventory and exposure scans on macOS/Linux to detect compromised packages, extensions, and MCP host configs.",
+    "risk": "safe",
+    "source": "community",
+    "date_added": "2026-05-27",
+    "plugin": {
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": []
+    }
+  },
+  {
     "id": "bun-development",
     "path": "skills/bun-development",
     "category": "web-development",
@@ -8388,6 +8410,28 @@
     }
   },
   {
+    "id": "complexity-cuts",
+    "path": "skills/complexity-cuts",
+    "category": "uncategorized",
+    "name": "complexity-cuts",
+    "description": "Lower Big-O on existing code via a one-transformation-at-a-time playbook with verify-revert-stop. For new code use lemmaly; for math-level wins escalate to mathguard.",
+    "risk": "safe",
+    "source": "community",
+    "date_added": "2026-05-26",
+    "plugin": {
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": []
+    }
+  },
+  {
     "id": "comprehensive-review-full-review",
     "path": "skills/comprehensive-review-full-review",
     "category": "code-quality",
@@ -10156,6 +10200,28 @@
     "risk": "unknown",
     "source": "community",
     "date_added": "2026-02-27",
+    "plugin": {
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": []
+    }
+  },
+  {
+    "id": "decision-navigator",
+    "path": "skills/decision-navigator",
+    "category": "planning",
+    "name": "decision-navigator",
+    "description": "Guide stuck or overwhelmed users through targeted branching questions until they reach concrete next steps.",
+    "risk": "safe",
+    "source": "community",
+    "date_added": "2026-05-27",
     "plugin": {
       "targets": {
         "codex": "supported",
@@ -16270,6 +16336,28 @@
     }
   },
   {
+    "id": "invariant-guard",
+    "path": "skills/invariant-guard",
+    "category": "uncategorized",
+    "name": "invariant-guard",
+    "description": "Correctness-first: forces writing the function contract, loop invariant, termination argument, and edge cases BEFORE code. Catches Boyer-Moore, leftmost binary search, QuickSelect traps.",
+    "risk": "safe",
+    "source": "community",
+    "date_added": "2026-05-26",
+    "plugin": {
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": []
+    }
+  },
+  {
     "id": "inventory-demand-planning",
     "path": "skills/inventory-demand-planning",
     "category": "business",
@@ -17424,6 +17512,28 @@
     "risk": "safe",
     "source": "community",
     "date_added": "2026-03-06",
+    "plugin": {
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": []
+    }
+  },
+  {
+    "id": "lemmaly",
+    "path": "skills/lemmaly",
+    "category": "uncategorized",
+    "name": "lemmaly",
+    "description": "Algorithm-first discipline: state Big-O, data structure, and algorithm family BEFORE writing loops, queries, or recursion. Catches O(n^2), N+1, and brute-force defaults.",
+    "risk": "safe",
+    "source": "community",
+    "date_added": "2026-05-26",
     "plugin": {
       "targets": {
         "codex": "supported",
@@ -18708,6 +18818,28 @@
     "risk": "none",
     "source": "community",
     "date_added": "2026-03-06",
+    "plugin": {
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": []
+    }
+  },
+  {
+    "id": "mathguard",
+    "path": "skills/mathguard",
+    "category": "uncategorized",
+    "name": "mathguard",
+    "description": "Math-heavy escalation for n >= 10^6 \u2014 Bloom, HyperLogLog, Count-Min, MinHash/LSH, FFT, JL projection, sweep line. Use when classical O(n log n) is the floor and approximate or math wins.",
+    "risk": "safe",
+    "source": "community",
+    "date_added": "2026-05-26",
     "plugin": {
       "targets": {
         "codex": "supported",
@@ -25377,6 +25509,72 @@
     }
   },
   {
+    "id": "sendblue-api",
+    "path": "skills/sendblue/sendblue-api",
+    "category": "api-integration",
+    "name": "sendblue-api",
+    "description": "Send and receive iMessage, SMS, and RCS from application code via the Sendblue HTTP API \u2014 text, media, group messages, send styles, reactions, typing indicators, status callbacks, and inbound webhooks.",
+    "risk": "safe",
+    "source": "community",
+    "date_added": "2026-05-22",
+    "plugin": {
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": []
+    }
+  },
+  {
+    "id": "sendblue-cli",
+    "path": "skills/sendblue/sendblue-cli",
+    "category": "api-integration",
+    "name": "sendblue-cli",
+    "description": "Send iMessage and SMS from the shell via the @sendblue/cli npm package \u2014 outbound sends, contact management, and account setup with no API client or webhook server required.",
+    "risk": "safe",
+    "source": "community",
+    "date_added": "2026-05-22",
+    "plugin": {
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": []
+    }
+  },
+  {
+    "id": "sendblue-notify",
+    "path": "skills/sendblue/sendblue-notify",
+    "category": "automation",
+    "name": "sendblue-notify",
+    "description": "Text the user's phone when a long-running task, agent turn, or scheduled job finishes \u2014 via @sendblue/cli for outbound, optionally wired to a Claude Code Stop hook for automatic fire.",
+    "risk": "safe",
+    "source": "community",
+    "date_added": "2026-05-22",
+    "plugin": {
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": []
+    }
+  },
+  {
     "id": "sendgrid-automation",
     "path": "skills/sendgrid-automation",
     "category": "automation",
@@ -29029,6 +29227,28 @@
     "risk": "safe",
     "source": "personal",
     "date_added": "2026-02-27",
+    "plugin": {
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": []
+    }
+  },
+  {
+    "id": "textme",
+    "path": "skills/sendblue/textme",
+    "category": "automation",
+    "name": "textme",
+    "description": "Text Claude from your phone \u2014 set up the njerschow/textme daemon so inbound iMessages drive a Claude Code session on your laptop, with voice notes, image input, code execution, and a phone-number whitelist.",
+    "risk": "critical",
+    "source": "community",
+    "date_added": "2026-05-26",
     "plugin": {
       "targets": {
         "codex": "supported",
