@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v3.0.30] - 2026-05-29
+### :wrench: Chores
+- [`c7ed154`](https://github.com/FrancoStino/opencode-skills-collection/commit/c7ed15408b6fc369621011e4187a81f18e93dd66) - sync skills and bump version to v3.0.30 *(commit by [@github-actions[bot]](https://github.com/apps/github-actions))*
+
+
 ## [v3.0.29] - 2026-05-28
 ### :bug: Bug Fixes
 - [`def83e2`](https://github.com/FrancoStino/opencode-skills-collection/commit/def83e280f59105fd213e3fa30d4dc41114cffdd) - delete opencode.yml *(commit by [@FrancoStino](https://github.com/FrancoStino))*
@@ -3296,3 +3301,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [v3.0.27]: https://github.com/FrancoStino/opencode-skills-collection/compare/v3.0.26...v3.0.27
 [v3.0.28]: https://github.com/FrancoStino/opencode-skills-collection/compare/v3.0.27...v3.0.28
 [v3.0.29]: https://github.com/FrancoStino/opencode-skills-collection/compare/v3.0.28...v3.0.29
+[v3.0.30]: https://github.com/FrancoStino/opencode-skills-collection/compare/v3.0.29...v3.0.30
