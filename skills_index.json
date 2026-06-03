@@ -1557,7 +1557,7 @@
     "description": "Eliminate sycophantic agreement patterns in AI responses.\nLoad via /skill anti-sycophancy.\n",
     "risk": "safe",
     "source": "community",
-    "date_added": "",
+    "date_added": "2026-06-03",
     "plugin": {
       "targets": {
         "codex": "supported",
@@ -22328,9 +22328,9 @@
     "category": "development",
     "name": "permission-manager",
     "description": "Manage opencode permissions: review always-allow lists, suggest safe read-only commands, configure permission patterns",
-    "risk": "safe",
+    "risk": "critical",
     "source": "community",
-    "date_added": "",
+    "date_added": "2026-06-03",
     "plugin": {
       "targets": {
         "codex": "supported",
@@ -27364,7 +27364,7 @@
     "description": "Scan prompt history for recurring patterns and unmet needs, then propose new skills or command templates",
     "risk": "safe",
     "source": "community",
-    "date_added": "",
+    "date_added": "2026-06-03",
     "plugin": {
       "targets": {
         "codex": "supported",
@@ -27564,7 +27564,7 @@
     "description": "Smart change detection, auto branch naming, and streamlined commit/PR workflow",
     "risk": "safe",
     "source": "community",
-    "date_added": "",
+    "date_added": "2026-06-03",
     "plugin": {
       "targets": {
         "codex": "supported",

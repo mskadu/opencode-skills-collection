@@ -2,6 +2,7 @@
 name: permission-manager
 description: 'Manage opencode permissions: review always-allow lists, suggest safe
   read-only commands, configure permission patterns'
+risk: critical
 license: MIT
 ---
 
