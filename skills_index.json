@@ -1550,6 +1550,28 @@
     }
   },
   {
+    "id": "anti-sycophancy",
+    "path": "skills/anti-sycophancy",
+    "category": "development",
+    "name": "anti-sycophancy",
+    "description": "Eliminate sycophantic agreement patterns in AI responses.\nLoad via /skill anti-sycophancy.\n",
+    "risk": "safe",
+    "source": "community",
+    "date_added": "",
+    "plugin": {
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": []
+    }
+  },
+  {
     "id": "antigravity-design-expert",
     "path": "skills/antigravity-design-expert",
     "category": "design",
@@ -22301,6 +22323,28 @@
     }
   },
   {
+    "id": "permission-manager",
+    "path": "skills/permission-manager",
+    "category": "development",
+    "name": "permission-manager",
+    "description": "Manage opencode permissions: review always-allow lists, suggest safe read-only commands, configure permission patterns",
+    "risk": "safe",
+    "source": "community",
+    "date_added": "",
+    "plugin": {
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": []
+    }
+  },
+  {
     "id": "personal-tool-builder",
     "path": "skills/personal-tool-builder",
     "category": "uncategorized",
@@ -27313,6 +27357,28 @@
     }
   },
   {
+    "id": "skill-suggester",
+    "path": "skills/skill-suggester",
+    "category": "development",
+    "name": "skill-suggester",
+    "description": "Scan prompt history for recurring patterns and unmet needs, then propose new skills or command templates",
+    "risk": "safe",
+    "source": "community",
+    "date_added": "",
+    "plugin": {
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": []
+    }
+  },
+  {
     "id": "skill-writer",
     "path": "skills/skill-writer",
     "category": "meta",
@@ -27477,6 +27543,28 @@
     "risk": "unknown",
     "source": "community",
     "date_added": "2026-02-27",
+    "plugin": {
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": []
+    }
+  },
+  {
+    "id": "smart-git-automation",
+    "path": "skills/smart-git-automation",
+    "category": "development",
+    "name": "smart-git-automation",
+    "description": "Smart change detection, auto branch naming, and streamlined commit/PR workflow",
+    "risk": "safe",
+    "source": "community",
+    "date_added": "",
     "plugin": {
       "targets": {
         "codex": "supported",
