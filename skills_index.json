@@ -27562,7 +27562,7 @@
     "category": "development",
     "name": "smart-git-automation",
     "description": "Smart change detection, auto branch naming, and streamlined commit/PR workflow",
-    "risk": "safe",
+    "risk": "critical",
     "source": "community",
     "date_added": "2026-06-03",
     "plugin": {
