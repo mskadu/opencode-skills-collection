@@ -63,7 +63,7 @@ All steps are synchronous. The plugin runs once at OpenCode startup.
 | `sync-skills.yml` | Nightly cron + manual | Wipes `bundled-skills/`, re-syncs from upstream, bumps patch version, creates release |
 | `publish.yml` | After sync or release workflow succeeds | Publishes to npm (`@latest`) |
 | `beta-release.yml` | Manual dispatch on `develop` only | Bumps beta version, publishes to npm (`@beta`) |
-| `release.yml` | Manual dispatch (`patch`/`minor`/`major`/`current`) | Bumps version, creates GitHub release |
+| `release.yml` | Manual dispatch (`patch`/`minor`/`major`/`current`) | Bumps version (`patch`/`minor`/`major`) or releases current version, then creates GitHub release |
 | `merge-branch.yml` | Manual dispatch | Merges `develop` → `main` |
 
 ## Branching
