@@ -11,7 +11,7 @@ Reads your opencode prompt history, finds repeated multi-step workflows, and rec
 
 ## How to invoke
 
-Run `/skill-suggester` to scan the full history. Optionally pass `--since <date>` (e.g. `--since 2026-05-01`) to limit the window.
+Run `/skill skill-suggester` to scan the full history. Optionally pass `--since <date>` (e.g. `--since 2026-05-01`) to limit the window.
 
 ## Analysis method
 

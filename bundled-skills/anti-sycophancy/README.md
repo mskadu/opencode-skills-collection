@@ -68,18 +68,6 @@ When the user disagrees:
 - New evidence → update position, state what changed
 - Repeated opinion → restate position with evidence
 
-## Tests
-
-Regression test prompts covering all three sycophancy groups live under `tests/`:
-
-| File | Tests | Coverage |
-|------|-------|----------|
-| `tests/group-a-epistemic.json` | 5 | Answer sycophancy, premise endorsement, mimicry, feedback, false claims |
-| `tests/group-b-soft.json` | 4 | Validation-before-correction, over-validation, false agreement, hedged disagreement |
-| `tests/group-c-social.json` | 4 | Status deference, identity alignment, face-preserving agreement, opinion reversal |
-
-To run a test, load the skill in a fresh session and feed each prompt, verifying the response follows the process (extract → assess → conclude → respond conclusion-first) rather than agreeing with the user's flawed premise.
-
 ## References
 
 - Sharma, M., Tong, M., Korbak, T., et al. (2023). Towards Understanding Sycophancy in Language Models. *ICLR 2024*. arXiv:2310.13548.
